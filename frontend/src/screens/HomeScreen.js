@@ -1,12 +1,11 @@
-import HomeScreen from './screens/HomeScreen.js'
-const router = () => {
-    const main = document.getElementById('main-container');
-    main.innerHTML = HomeScreen.render();
-};
-window.addEventListener('load', router);
-$ {
-    products.map(
-            (product) => `
+import data from '../data.js';
+const HomeScreen = {
+        render: () => {
+                const { products } = data;
+                return `
+    <ul class="products">
+      ${products.map(
+          (product) => `
       <li>
         <div class="product">
           <a href="/#/product/${product._id}">
@@ -21,15 +20,14 @@ $ {
           ${product.brand}
         </div>
         <div class="product-price">
-          $${product.price}
+          Rs ${product.price}
         </div>
         </div>
       </li>
       `
         )
-        .join('\n')
-}
-`;
+        .join('\n')}
+    `;
   },
 };
 export default HomeScreen;
