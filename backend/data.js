@@ -4,7 +4,7 @@ module.exports = {
             name: 'Full Zip Running Shirts Thermal Workout',
             category: 'Shirts',
             image: '/images/product-1.jpg',
-            price: 759,
+            price: 1259,
             brand: 'Hiskywin',
             rating: 4.5,
             numReviews: 10,
