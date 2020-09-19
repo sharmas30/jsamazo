@@ -108,8 +108,9 @@ header {
 
 header a {
     color: #ffffff;
-    font-weight: bold;
     text-decoration: none;
+    padding-right: 1rem;
+    font-weight: bold;
 }
 
 header a:hover {
@@ -117,7 +118,9 @@ header a:hover {
 }
 
 .brand a {
-    font-size: 3rem;
+    font-weight: bold;
+    font-size: 10rem;
+    padding-left: 1rem;
 }
 
 footer {
@@ -457,4 +460,58 @@ tbody>tr:nth-child(odd) {
 
 td {
     padding: 0.5rem;
+}
+
+
+/* DASHBOARD */
+
+.dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.dashboard h1 {
+    font-size: 3rem;
+    margin: 1rem 0;
+}
+
+.dashboard-menu {
+    flex: 1 1 20rem;
+    background-color: #f0f0f0;
+}
+
+.dashboard-menu ul {
+    padding: 0;
+}
+
+.dashboard-menu a {
+    display: flex;
+    padding: 1rem;
+    padding-left: 2rem;
+    justify-content: space-between;
+}
+
+.dashboard-menu a:hover {
+    background-color: #c0c0c0;
+}
+
+.dashboard-menu li.selected a {
+    background-color: #c0c0c0;
+    color: #f08040;
+}
+
+.dashboard-content {
+    flex: 4 1 80rem;
+    padding: 1rem;
+}
+
+.order-list button,
+.product-list button {
+    font-size: 1.3rem;
+    padding: 0.5rem;
+}
+
+.tr-action {
+    width: 10rem;
 }
