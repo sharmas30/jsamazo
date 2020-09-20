@@ -4,16 +4,16 @@ import { getUserInfo } from '../localStorage';
 
 const OrderScreen = {
         after_render: async() => {
-            // const request = parseRequestUrl();
-            // document
-            //     .getElementById('deliver-order-button')
-            //     .addEventListener('click', async() => {
-            //         showLoading();
-            //         await deliverOrder(request.id);
-            //         hideLoading();
-            //         showMessage('Order Delivered.');
-            //         rerender(OrderScreen);
-            //     });
+            const request = parseRequestUrl();
+            document
+                .getElementById('deliver-order-button')
+                .addEventListener('click', async() => {
+                    showLoading();
+                    await deliverOrder(request.id);
+                    hideLoading();
+                    showMessage('Order Delivered.');
+                    rerender(OrderScreen);
+                });
         },
 
         render: async() => {
