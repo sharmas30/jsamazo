@@ -1,11 +1,13 @@
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import data from './data.js';
+import path from 'path';
 import mongoose from 'mongoose';
 import config from './config';
 import userRouter from './routers/userRouter.js';
 import orderRouter from './routers/orderRouter.js';
+import productRouter from './routers/productRouter.js';
+import uploadRouter from './routers/uploadRouter.js';
 
 
 mongoose.connect(config.MONGODB_URL, {
@@ -21,21 +23,19 @@ mongoose.connect(config.MONGODB_URL, {
     });
 
 const app = express();
+
 app.use(cors());
 app.use(bodyParser.json())
+app.use('/api/uploads', uploadRouter)
 app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
-app.get("/api/products/", (req, res) => {
-    res.send(data.products);
-})
+app.use('/api/products', productRouter);
 
-app.get('/api/products/:id', (req, res) => {
-    const product = data.products.find((x) => x._id === req.params.id);
-    if (product) {
-        res.send(product);
-    } else {
-        res.status(404).send({ message: 'Product Not Found!' });
-    }
+app.use('/uploads', express.static(path.join(__dirname, '/../uploads')));
+app.use(express.static(path.join(__dirname, '/../frontend')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '/../frontend/index.html'));
 });
 
 app.use((err, req, res, next) => {

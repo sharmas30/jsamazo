@@ -13,9 +13,11 @@ import PlaceOrderScreen from './screens/PlaceOrderScreen.js';
 import OrderScreen from './screens/OrderScreen.js';
 import DashboardScreen from './screens/DashboardScreen.js';
 import ProductListScreen from './screens/ProductListScreen.js';
+import ProductEditScreen from './screens/ProductEditScreen.js';
 
 const routes = {
     '/': HomeScreen,
+    '/product/:id/edit': ProductEditScreen,
     '/product/:id': ProductScreen,
     '/order/:id': OrderScreen,
     '/cart/:id': CartScreen,
@@ -37,14 +39,18 @@ const router = async() => {
         (request.resource ? `/${request.resource}` : '/') +
         (request.id ? '/:id' : '') +
         (request.verb ? `/${request.verb}` : '');
+
+    console.log("ParseUrl : ", parseUrl);
     const screen = routes[parseUrl] ? routes[parseUrl] : Error404Screen;
-    const header = document.getElementById('header-container');
-    header.innerHTML = await Header.render();
+    const header = document.getElementById("header-container");
+
+    header.innerHTML = await Header.render()
     await Header.after_render();
-    const main = document.getElementById('main-container');
-    main.innerHTML = await screen.render();
+    const main = document.getElementById("main-container");
+
+    main.innerHTML = await screen.render()
     if (screen.after_render) await screen.after_render();
-    hideLoading();
+    hideLoading()
 };
 window.addEventListener('load', router);
 window.addEventListener('hashchange', router);
