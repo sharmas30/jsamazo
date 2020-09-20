@@ -33,6 +33,7 @@ const ProfileScreen = {
                     document.location.hash = '/';
                 }
                 const orders = await getMyOrders();
+                console.log("ORDER=> ", orders);
                 return `
         
 		<div class="content profile">
@@ -89,7 +90,7 @@ const ProfileScreen = {
 							<td>${order.createdAt}</td>
 							<td>${order.totalPrice}</td>
 							<td>${order.paidAt || 'No'}</td>
-							<td>${order.deliveryAt || 'No'}</td>
+							<td>${order.deliveredAt || 'No'}</td>
 							<td><a href="/#/order/${order._id}">DETIALS</a> </td>
 							</tr>
 							`
