@@ -41,7 +41,7 @@ button:hover {
 }
 
 button.primary {
-    background-color: #f0c040;
+    background-color: #fb641b;
 }
 
 .overlay {
@@ -561,4 +561,13 @@ td {
 
 .summary-title.color3 {
     background-color: #e0e0f0;
+}
+
+.charts {
+    display: flex;
+    justify-content: space-between;
+}
+
+.charts>div {
+    flex: 1;
 }

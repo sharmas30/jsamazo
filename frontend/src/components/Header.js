@@ -5,7 +5,7 @@ const Header = {
                 const { name, isAdmin } = getUserInfo();
                 return `
 				<div>
-					<a href="/#/">jsamazona</a>
+					<a href="/#/">SharmasWeb</a>
 				</div>
 				<div>
 				${name ? `<a href="/#/profile">${name}</a>`
