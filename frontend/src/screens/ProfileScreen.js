@@ -33,7 +33,6 @@ const ProfileScreen = {
                     document.location.hash = '/';
                 }
                 const orders = await getMyOrders();
-                console.log("ORDER=> ", orders);
                 return `
         
 		<div class="content profile">
