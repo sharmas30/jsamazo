@@ -76,5 +76,20 @@ productRouter.put('/:id', _utils.isAuth, _utils.isAdmin, (0, _expressAsyncHandle
     });
   }
 }));
+productRouter.delete('/:id', _utils.isAuth, _utils.isAdmin, (0, _expressAsyncHandler.default)(async (req, res) => {
+  const product = await _productModel.default.findById(req.params.id);
+
+  if (product) {
+    const deletedProduct = await product.remove();
+    res.send({
+      message: 'Product Deleted',
+      product: deletedProduct
+    });
+  } else {
+    res.status(404).send({
+      message: 'Product Not Found'
+    });
+  }
+}));
 var _default = productRouter;
 exports.default = _default;

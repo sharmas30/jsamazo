@@ -50,6 +50,6 @@ app.use((err, req, res, next) => {
     message: err.message
   });
 });
-app.listen(5000, () => {
+app.listen(_config.default.PORT, () => {
   console.log("serve at http://localhost:5000");
 });
