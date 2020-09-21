@@ -8,9 +8,9 @@ const OrderScreen = {
             document
                 .getElementById('deliver-order-button')
                 .addEventListener('click', async() => {
-                    showLoading();
+                    //  showLoading();
                     await deliverOrder(request.id);
-                    hideLoading();
+                    //  hideLoading();
                     showMessage('Order Delivered.');
                     rerender(OrderScreen);
                 });
