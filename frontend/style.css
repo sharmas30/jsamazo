@@ -571,3 +571,18 @@ td {
 .charts>div {
     flex: 1;
 }
+
+.primary-btn img {
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+}
+
+.primary-btn div {
+    font: 0.1rem;
+    margin: 1rem 0rem;
+    padding: 0.4rem;
+    border: 0.3rem #808080 solid;
+    border-radius: 0.4rem;
+    cursor: pointer;
+}

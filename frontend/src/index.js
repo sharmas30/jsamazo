@@ -32,10 +32,12 @@ const routes = {
     '/dashboard': DashboardScreen,
     '/productlist': ProductListScreen,
     '/orderlist': OrderListScreen,
-
 }
+
+
 const router = async() => {
     showLoading();
+
     const request = parseRequestUrl();
     const parseUrl =
         (request.resource ? `/${request.resource}` : '/') +
@@ -52,6 +54,7 @@ const router = async() => {
 
     main.innerHTML = await screen.render()
     if (screen.after_render) await screen.after_render();
+
     hideLoading()
 };
 window.addEventListener('load', router);
