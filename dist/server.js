@@ -34,8 +34,8 @@ _mongoose.default.connect(_config.default.MONGODB_URL, {
 
 const app = (0, _express.default)();
 app.use((0, _cors.default)());
-app.use(_bodyParser.default.json());
-app.use('/api/uploads', _uploadRouter.default);
+app.use(_bodyParser.default.json()); // app.use('/api/uploads', uploadRouter)
+
 app.use('/api/users', _userRouter.default);
 app.use('/api/orders', _orderRouter.default);
 app.use('/api/products', _productRouter.default);

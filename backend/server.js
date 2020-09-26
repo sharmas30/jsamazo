@@ -26,7 +26,7 @@ const app = express();
 
 app.use(cors());
 app.use(bodyParser.json())
-app.use('/api/uploads', uploadRouter)
+    // app.use('/api/uploads', uploadRouter)
 app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
 app.use('/api/products', productRouter);

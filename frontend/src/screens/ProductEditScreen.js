@@ -126,7 +126,7 @@ const ProductEditScreen = {
                             .ref("Pictures/" + rollv)
                             .set({
                                 id: rollv,
-                                Name: ImgName,
+                                Name: document.getElementById('name').value,
                                 Link: ImgUrl,
                             });
                         console.log("LinkIMG=>> ", ImgUrl);
@@ -166,7 +166,7 @@ const ProductEditScreen = {
         const request = parseRequestUrl();
         const product = await getProduct(request.id);
         rollv = product._id;
-        ImgName = product.name;
+        // ImgName = product.name;
         return `
     <div class="content">
       <div>
