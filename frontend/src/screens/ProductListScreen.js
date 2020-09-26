@@ -29,6 +29,14 @@ const ProductListScreen = {
                         } else {
                             rerender(ProductListScreen);
                         }
+
+                        // DELETE SECTION FROM FIREBASE DATABASE START //
+
+                        firebase.storage().ref("ImagesProduct/" + deleteButton.id + ".png").delete();
+                        firebase.database().ref("Pictures/" + deleteButton.id).remove();
+
+                        // DELETE SECTION FROM FIREBASE DATABASE END //
+
                         hideLoading();
                     }
                 });
